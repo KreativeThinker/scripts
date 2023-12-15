@@ -1,0 +1,10 @@
+#!/bin/bash
+playerctlstatus=$(playerctl status 2> /dev/null)
+# if [[ $playerctlstatus == "" ]]; then
+#   echo "%{A1:playerctl stop:}"
+
+if [[ $playerctlstatus == "Playing" ]]; then
+  echo "%{A1:playerctl play:}{A}%"
+else
+  echo "%{A1:playerctl pause:}%{A}"
+fi
