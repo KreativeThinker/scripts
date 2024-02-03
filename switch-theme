@@ -59,21 +59,21 @@ source ~/.cache/wal/colors.sh
 ###########
 ## Dunst ##
 ###########
-DUNST_FILE=~/.config/dunst/dunstrc
-
-# Update dunst based on pywal colors.
-sed -i '/background = /s/.*/    background = "'$color0'"/' $DUNST_FILE
-sed -i '/foreground = /s/.*/    foreground = "'$color7'"/' $DUNST_FILE
-sed -i '/frame_color = /s/.*/    frame_color = "'$color5'"/' $DUNST_FILE
-
+# DUNST_FILE=~/.config/dunst/dunstrc
+#
+# # Update dunst based on pywal colors.
+# sed -i '/background = /s/.*/    background = "'$color0'"/' $DUNST_FILE
+# sed -i '/foreground = /s/.*/    foreground = "'$color7'"/' $DUNST_FILE
+# sed -i '/frame_color = /s/.*/    frame_color = "'$color5'"/' $DUNST_FILE
+#
 # Not needed, dunst gets autostarted from dbus anyways
 #killall -q dunst; dunst & disown
-killall -q dunst
+# killall -q dunst
 
 ##############
 ## GTK & Qt ##
 ##############
-oomox-cli -o wal -t $HOME/.local/share/themes $HOME/.cache/wal/colors-oomox &&
+# oomox-cli -o wal -t $HOME/.local/share/themes $HOME/.cache/wal/colors-oomox &&
 
 ###########
 ## BSPWM ##
@@ -86,4 +86,4 @@ bspc config presel_feedback_color "$color1"
 #############
 ## OpenRGB ##
 #############
-lights
+# lights
