@@ -1,0 +1,23 @@
+#! /bin/bash
+
+# Temporary file to store the state
+STATE_FILE="$HOME/.cache/staticpad"
+
+# Ensure the cache directory exists
+mkdir -p "$HOME/.cache"
+
+# Initialize state if the file doesn't exist
+if [ ! -f "$STATE_FILE" ]; then
+  echo "0" > "$STATE_FILE"
+fi
+
+# Read the current state
+state=$(cat "$STATE_FILE")
+
+if [ "$state" -eq 0 ]; then
+  bspc desktop --focus -f 0
+  echo 1 > "$STATE_FILE"
+else
+  bspc desktop --focus -f last
+  echo 0 > "$STATE_FILE"
+fi

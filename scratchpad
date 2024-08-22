@@ -14,7 +14,7 @@
 # ~ ADIGEN
 
 id=`bspc query -N -n .sticky`
-layer=normal
+layer=above
 
 # Show a blurred background
 if [ -f ~/.cache/scratchpad-blur.lock ]; then

@@ -1,0 +1,3 @@
+#! /bin/bash
+
+iwctl station wlan0 get-networks | grep ">" | awk '{print $4, $NF}' | rofi -dmenu -theme ~/.config/rofi/custom/menu.rasi
