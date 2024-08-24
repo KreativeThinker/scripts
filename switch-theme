@@ -101,6 +101,11 @@ bspc config presel_feedback_color "$color1"
 #############
 pywalfox update
 
+############
+## NEOVIM ##
+############
+python3 $HOME/.config/nvim/pywal/chadwal.py
+
 #############
 ## OpenRGB ##
 #############
