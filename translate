@@ -1,0 +1,11 @@
+#!/bin/bash
+
+lang=$1
+while true; do
+    read -p "Enter text to translate: " text
+    if [ "$text" = "/clear" ]; then
+        clear
+    else
+        translate-cli -t $lang "$text" -o
+    fi
+done
