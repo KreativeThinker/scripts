@@ -28,9 +28,10 @@
 # fi
 #
 # Launch rofi
-cacheDir="$HOME/.cache/$USER/$current_rice"
+# cacheDir="$HOME/.cache/$USER/$current_rice"
 mkdir -p "${cacheDir}"
 wall_dir="$HOME/.wallpapers"
+cacheDir="$HOME/.wallpapers"
 monitor_res=$(($(xdpyinfo | awk '/dimensions/{print $2}' | cut -d 'x' -f1) * 14 / $(xdpyinfo | awk '/resolution/{print $2}' | cut -d 'x' -f1)))
 rofi_override="element-icon{size:${monitor_res}px;}"
 rofi_command="rofi -dmenu -theme $HOME/.config/rofi/custom/WallSelect.rasi -theme-str $rofi_override"
