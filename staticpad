@@ -1,23 +1,20 @@
-#! /bin/bash
+#!/bin/bash
 
-# Temporary file to store the state
-STATE_FILE="$HOME/.cache/staticpad"
+workspace=$1
+last_workspace_file="$HOME/.cache/last_workspace"
 
-# Ensure the cache directory exists
-mkdir -p "$HOME/.cache"
-
-# Initialize state if the file doesn't exist
-if [ ! -f "$STATE_FILE" ]; then
-  echo "0" > "$STATE_FILE"
+if [ ! -f "$last_workspace_file" ]; then
+  echo "No last workspace file found."
+  exit 1
 fi
 
-# Read the current state
-state=$(cat "$STATE_FILE")
+current_workspace=$(bspc query -T --desktop | jq -r '.name')
 
-if [ "$state" -eq 0 ]; then
-  bspc desktop --focus -f 0
-  echo 1 > "$STATE_FILE"
+if [ "$current_workspace" = "$workspace" ]; then
+    bspc desktop -f "$(cat "$last_workspace_file")"
 else
-  bspc desktop --focus -f last
-  echo 0 > "$STATE_FILE"
+  if [ "$current_workspace" != "9" ] && [ "$current_workspace" != "8" ]; then
+    echo "$current_workspace" > "$last_workspace_file"
+  fi
+  bspc desktop -f "$workspace"
 fi
