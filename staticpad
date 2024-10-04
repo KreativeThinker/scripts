@@ -13,7 +13,7 @@ current_workspace=$(bspc query -T --desktop | jq -r '.name')
 if [ "$current_workspace" = "$workspace" ]; then
     bspc desktop -f "$(cat "$last_workspace_file")"
 else
-  if [ "$current_workspace" != "9" ] && [ "$current_workspace" != "8" ]; then
+  if [ "$current_workspace" != "9" ] && [ "$current_workspace" != "8" ] && [ "$current_workspace" != "0" ]; then
     echo "$current_workspace" > "$last_workspace_file"
   fi
   bspc desktop -f "$workspace"
