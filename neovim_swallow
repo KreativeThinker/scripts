@@ -1,0 +1,13 @@
+#!/bin/bash
+
+
+
+TERMINAL_PID=$(xdotool getwindowfocus getwindowpid)
+TERMINAL_ID=$(xdotool getactivewindow)
+
+neovide $1 &
+NEOVIDE_PID=$!
+
+xdo hide "$TERMINAL_ID"
+wait "$NEOVIDE_PID"
+xdo show "$TERMINAL_ID"
