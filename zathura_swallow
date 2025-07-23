@@ -3,9 +3,9 @@
 TERMINAL_PID=$(xdotool getwindowfocus getwindowpid)
 TERMINAL_ID=$(xdotool getactivewindow)
 
-neovide "$1" &
-NEOVIDE_PID=$!
+zathura "$1" &
+ZATHURA_PID=$!
 
 xdo hide "$TERMINAL_ID"
-wait "$NEOVIDE_PID"
+wait "$ZATHURA_PID"
 xdo show "$TERMINAL_ID"
